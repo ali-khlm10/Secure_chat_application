@@ -53,8 +53,8 @@ def listen_for_client(cs):
                     client_sockets.add(cs)
                     # print(client_socket)
                     cs.send(Convert_to_pickle('new client added'))
-                    for cl in clients:
-                        cl[1].send(Convert_to_pickle(['members', client_names]))
+                    for cl in clients_sockets:
+                        cl.send(Convert_to_pickle(['members', client_names]))
 
 
             elif len(msg) == 5 and msg[0] == "new message":
